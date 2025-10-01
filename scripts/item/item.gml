@@ -25,7 +25,7 @@ function consumable(_key, _size, _weight, _effects, _image = spr_placeholder, _u
 					e.func()
 					break
 				case effect_types.status:
-					array_push(obj_player.status_effects,e.status)
+					array_push(global.player_stats.status_effects,e.status)
 					break
 			}
 		})
@@ -44,7 +44,16 @@ function status_effect(_type, _potency, _duration, _apply_time, _degrade_time, _
 }
 
 function get_item(key) {
-	return array_find_index(global.items,method({key},function(e,i) {
+	return global.items[array_find_index(global.items,method({key},function(e,i) {
 		return e.key == key
-	}))
+	}))]
+}
+
+function add_item(key) {
+	var itm = get_item(key)
+	if (get_inventory_fullness() + itm <= global.player_stats.inv_space) {
+		array_push(global.player_stats.inv,key)
+		return true
+	}
+	return false
 }

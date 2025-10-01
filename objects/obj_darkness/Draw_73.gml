@@ -8,3 +8,4 @@ with (obj_light) {
 }
 surface_reset_target()
 draw_surface(surf,camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]))
+surface_free(surf)

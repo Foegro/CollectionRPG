@@ -7,7 +7,7 @@ function start_game(){
 		spd: 5,
 		sprint_mod: 1.5,
 		sneak_mod: 0.5,
-		inv: [],
+		inv: array_create(10,"test_item1"),
 		inv_space: 10,
 		status_effects: [],
 	}

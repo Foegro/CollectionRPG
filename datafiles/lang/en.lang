@@ -42,11 +42,18 @@
 		"sprint": "Sprint",
 		"sneak": "Sneak",
 		"interact": "Interact",
+		"menu": "Menu",
 	},
 	
 	"volume": {
 		"master": "Master",
 		"music": "Music",
 		"sound": "Sound",
-	}
+	},
+	
+	"items": {
+		"test_item1": {
+			"name": "Test Item 1 Name",
+		}
+	},
 }

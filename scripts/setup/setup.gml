@@ -9,7 +9,8 @@ if (file_exists("options.json")){
 		right: ord("D"),
 		sprint: vk_shift,
 		sneak: ord("C"),
-		interact: vk_space
+		interact: vk_space,
+		menu: ord("E"),
 	}
 	if (file_find_first("lang/"+os_get_language()+".lang",fa_none) != "") global.lang = os_get_language()
 	else global.lang = "en"

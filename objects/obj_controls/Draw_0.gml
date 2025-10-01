@@ -18,6 +18,6 @@ surface_reset_target()
 draw_surface(surf,bbox_left+20,bbox_top+20)
 surface_free(surf)
 if (32*array_length(controls) > sprite_height-40) {
-	var length = (32*array_length(controls))/(sprite_height-40)
+	var length = 64
 	draw_rectangle(bbox_right-20,bbox_top+20+(sprite_height-40-length)*offset/(32*array_length(controls)-sprite_height+40),bbox_right-24,bbox_top+20+length+(sprite_height-40-length)*offset/(32*array_length(controls)-sprite_height+40),false)
 }

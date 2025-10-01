@@ -3,6 +3,7 @@ controls = [
 	"left",
 	"down",
 	"right",
+	"menu",
 	"sprint",
 	"sneak",
 	"interact",
