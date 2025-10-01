@@ -1,0 +1,52 @@
+{
+	"lang": "English",
+	
+	"new_game": "New Game",
+	"continue": "Continue",
+	"options": "Options",
+	"quit": "Quit",
+	
+	"languages": "Languages",
+	"controls": "Controls",
+	"sound": "Sound",
+	"back": "Back",
+	
+	"done": "Done",
+	
+	"keybinds": {
+		"no_key": "Key {0}",
+		"space": "Space",
+		"shift": "Shift",
+		"ctrl": "Ctrl",
+		"tab": "Tab",
+		"alt": "Alt",
+		"enter": "Enter",
+		"up": "Up",
+		"down": "Down",
+		"left": "Left",
+		"right": "Right",
+		"backspace": "Backspace",
+		"esc": "Escape",
+		"del": "Delete",
+		"f": "F{0}",
+		"_end": "End",
+		"page_up": "Page up",
+		"page_down": "Page down"
+	},
+	
+	"control_options": {
+		"up": "Up",
+		"down": "Down",
+		"left": "Left",
+		"right": "Right",
+		"sprint": "Sprint",
+		"sneak": "Sneak",
+		"interact": "Interact",
+	},
+	
+	"volume": {
+		"master": "Master",
+		"music": "Music",
+		"sound": "Sound",
+	}
+}

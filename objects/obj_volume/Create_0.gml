@@ -1,0 +1,1 @@
+txt = variable_struct_get(lang_read("volume"),key)

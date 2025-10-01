@@ -1,0 +1,52 @@
+{
+	"lang": "Deutsch",
+	
+	"new_game": "Neues Spiel",
+	"continue": "Fortsetzen",
+	"options": "Einstellungen",
+	"quit": "Spiel beenden",
+	
+	"languages": "Sprachen",
+	"controls": "Steuerung",
+	"sound": "Ton",
+	"back": "Zurück",
+	
+	"done": "Fertig",
+	
+	"keybinds": {
+		"no_key": "Taste {0}",
+		"space": "Leertaste",
+		"shift": "Shift",
+		"ctrl": "Strg",
+		"tab": "Tab",
+		"alt": "Alt",
+		"enter": "Enter",
+		"up": "Oben",
+		"down": "Unten",
+		"left": "Links",
+		"right": "Rechts",
+		"backspace": "Zurück",
+		"esc": "Escape",
+		"del": "Entf",
+		"f": "F{0}",
+		"_end": "Ende",
+		"page_up": "Bind hoch",
+		"page_down": "Bild unten"
+	},
+	
+	"control_options": {
+		"up": "Oben",
+		"down": "Unten",
+		"left": "Links",
+		"right": "Rechts",
+		"sprint": "Rennen",
+		"sneak": "Schleichen",
+		"interact": "Interagieren",
+	},
+	
+	"volume": {
+		"master": "Master",
+		"music": "Musik",
+		"sound": "Geräusche",
+	}
+}

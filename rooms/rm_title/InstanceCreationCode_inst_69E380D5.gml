@@ -1,0 +1,1 @@
+func = start_game

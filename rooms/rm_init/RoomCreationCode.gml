@@ -1,0 +1,5 @@
+audio_group_load(ag_music)
+audio_group_load(ag_sfx)
+window_set_size(640*1.5,480*1.5)
+window_center()
+room_goto(rm_title)
