@@ -52,8 +52,13 @@
 	},
 	
 	"items": {
+		"unidentified": "Unidentified Item",
 		"test_item1": {
 			"name": "Test Item 1 Name",
+			"description": [
+				"An item that looks a lot like a test",
+				"It very much might be a test",
+			]
 		}
 	},
 }

@@ -6,7 +6,6 @@ function tick(amount = 1){
 		with (all) event_perform(ev_other,ev_user0)
 		global.time++
 	}
-	show_debug_message(get_time(global.time))
 }
 
 function get_summer_winter_ratio(_time = global.time) {

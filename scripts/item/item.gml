@@ -8,14 +8,33 @@ enum status_types {
 global.items = [
 	new item("test_item1",1,1),
 ]
-function item(_key, _weight, _size, _image = spr_placeholder) constructor {
+function item_instance(_key) constructor{
+	key = _key
+	identified = false
+	static identify = function() {
+		var itm = get_item(key)
+		tick(itm.identification_time*power(itm.knowledge_identification_influence,itm.knowledge))
+		itm.add_knowledge()
+	}
+}
+
+function item(_key, _weight = 1, _size = 1, _knowledge_rate = 0.5, _identification_time = 10, _knowledge_identification_influence = 0.9, _image = spr_placeholder) constructor {
 	key = _key
 	weight = _weight
 	size = _size
 	image = _image
+	knowledge_rate = _knowledge_rate
+	knowledge = 0
+	identification_time = _identification_time
+	knowledge_identification_influence = _knowledge_identification_influence
+	static add_knowledge = function(_knowledge = knowledge_rate) {
+		global.items[array_find_index(global.items,method({key},function(e,i) {
+			return e.key = key
+		}))].knowledge += _knowledge
+	}
 }
 
-function consumable(_key, _size, _weight, _effects, _image = spr_placeholder, _use_up = true) : item(_key, _size, _weight, _image) constructor {
+function consumable(_key, _weight = 1, _size = 1, _knowledge_rate = 0.5, _identification_time = 10, _knowledge_identification_influence = 0.9, _effects = [], _image = spr_placeholder, _use_up = true) : item(_key, _weight, _size, _knowledge_rate, _identification_time, _knowledge_identification_influence, _image) constructor {
 	effects = _effects
 	use_up = _use_up
 	static consume = function() {
