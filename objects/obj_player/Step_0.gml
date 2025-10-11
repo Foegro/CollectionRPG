@@ -8,11 +8,13 @@ var m = keyboard_check_pressed(global.controls.menu)
 
 if (m) menu_open = !menu_open
 
+//show_debug_message(global.player_stats.status_effects)
+
 if (menu_open) {
 	speed = 0
-	if (64*array_length(global.player_stats.inv) > 64*6) {
-		target_offset_inv = clamp(target_offset_inv,0,32+array_length(global.player_stats.inv)*64-64*6)
-		menu_offset_inv = lerp(menu_offset_inv,target_offset_inv,0.1)
+	if (64+96*floor(array_length(global.player_stats.inv)/5) > 64*6) {
+		target_offset = clamp(target_offset,0,32+array_length(global.player_stats.inv)*64-64*6)
+		offset = lerp(offset,target_offset,0.1)
 	}
 } else {
 	var real_spd = global.player_stats.spd
@@ -28,9 +30,10 @@ if (menu_open) {
 
 	ds_list_destroy(spd_mods)
 
-	for (var i = 0; i < array_length(global.player_stats.status_effects); i++) {
+	/*for (var i = 0; i < array_length(global.player_stats.status_effects); i++) {
 		if (global.player_stats.status_effects[i].type == status_types.movement_mod) real_spd *= 1+global.player_stats.status_effects[i].effect
-	}
+	}*/
+	real_spd *= get_status_mod(status_types.movement_mod)
 
 	if (r) hspeed = real_spd
 	else if (l) hspeed = -real_spd

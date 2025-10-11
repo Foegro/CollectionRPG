@@ -1,0 +1,1 @@
+status_add(new status_effect(status_types.movement_mod,-0.5,30,10,10))

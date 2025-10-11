@@ -1,6 +1,8 @@
 var mx = mouse_x-camera_get_view_x(view_camera[0])
 var my = mouse_y-camera_get_view_y(view_camera[0])
 if (menu_open) {
+	#region menu_old
+	/*
 	draw_sprite_ext(spr_gui,0,640/4,480/2,4,6,0,c_white,1)
 	if (selected != -1) draw_sprite_ext(spr_gui,0,640*3/4,480/2,4,6,0,c_white,1)
 	
@@ -39,5 +41,34 @@ if (menu_open) {
 	if (64*array_length(global.player_stats.inv) > 64*6) {
 		var length = 64
 		draw_rectangle(640/4+64*2-20,480/2-64*3+20+(64*6-40-length)*menu_offset_inv/(64*array_length(global.player_stats.inv)-64*6+40),640/4+64*2-24,480/2-64*3+20+length+(64*6-40-length)*menu_offset_inv/(64*array_length(global.player_stats.inv)-64*6+40),false)
+	}
+	*/
+	#endregion
+	draw_sprite_ext(spr_gui,0,320,240,8,6,0,c_white,1)
+	var surf = surface_create(64*8-40,64*6-40)
+	
+	surface_set_target(surf)
+	array_foreach(global.player_stats.inv,function(e,i) {
+		var mx = mouse_x-camera_get_view_x(view_camera[0])-(320-64*4+20)
+		var my = mouse_y-camera_get_view_y(view_camera[0])-(240-64*3+20)
+		var hovering = abs(mx-(64+96*(i%5)-20)) < 32 && abs(my-(64+96*floor(i/5)-offset-20)) < 32
+		draw_sprite(spr_gui,hovering,64+96*(i%5)-20,64+96*floor(i/5)-offset-20)
+		var itm = get_item(e.key)
+		itm.draw(64+96*(i%5)-20,64+96*floor(i/5)-offset-20,0.25,0.25,1)
+		if (hovering) {
+			other.t_tip = e.key
+		}
+	})
+	surface_reset_target()
+	
+	draw_surface(surf,320-64*4+20,240-64*3+20)
+	surface_free(surf)
+	if (64+96*floor(array_length(global.player_stats.inv)/5) > 64*6) {
+		var length = 64
+		draw_rectangle(640/2+64*4-20,480/2-64*3+20+(64*6-40-length)*offset/(64+96*floor(array_length(global.player_stats.inv)/5)-64*6),640/2+64*4-24,480/2-64*3+20+length+(64*6-40-length)*offset/(64+96*floor(array_length(global.player_stats.inv)/5)-64*6),false)
+	}
+	if (t_tip != "") {
+		draw_item_page(mx > 640-336/2 ? mx-336/2 : mx,my > 240 ? my-240 : my,t_tip,0.5,0.5)
+		t_tip = ""
 	}
 }

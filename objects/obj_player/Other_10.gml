@@ -1,16 +1,9 @@
-for (var i = 0; i < array_length(global.player_stats.status_effects); i++) {
-	if (global.player_stats.status_effects[i].cooldown > 0) {
-		global.player_stats.status_effects[i].cooldown--
-	} else if (global.player_stats.status_effects[i].effect != global.player_stats.status_effects[i].potency && !global.player_stats.status_effects[i].degrading) {
-		global.player_stats.status_effects[i].effect += global.player_stats.status_effects[i].potency/global.player_stats.status_effects[i].apply_time
-	} else if (global.player_stats.status_effects[i].duration > 0) {
-		global.player_stats.status_effects[i].effect = global.player_stats.status_effects[i].potency
-		global.player_stats.status_effects[i].duration--
-	} else if (global.player_stats.status_effects[i].effect != 0) {
-		global.player_stats.status_effects[i].degrading = true
-		global.player_stats.status_effects[i].effect -= global.player_stats.status_effects[i].potency/global.player_stats.status_effects[i].degrade_time
-	} else {
-		array_delete(global.player_stats.status_effects,i,1)
-		i--
-	}
+global.player_stats.status_effects = status_tick(global.player_stats.status_effects)
+for (var i = 0; i < array_length(global.player_stats.inv); i++) {
+	global.player_stats.inv[i].age++
+	array_foreach(struct_get_names(global.player_stats.inv[i].age_funcs),method({itm: global.player_stats.inv[i]},function(e,i) {
+		if (int64(e) == itm.age) {
+			variable_struct_get(itm.age_funcs,e)()
+		}
+	}))
 }
